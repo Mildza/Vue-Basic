@@ -1,5 +1,5 @@
 <template>
-  <ul class="nav nav-pills">
+  <ul class="nav nav-pills mb-4 justify-content-center">
     <li class="nav-item">
       <a class="nav-link">
         <router-link to="/">Home</router-link>
@@ -12,29 +12,17 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">
+        <router-link to="/filter">Filters/Mixins</router-link>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
         <router-link to="/directive">Directive</router-link>
       </a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">
-        <router-link to="/filter">Filters and Mixins</router-link>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">
-        <router-link to="/router/5">Router/5</router-link>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">
-        <router-link to="/router/10">Router/10</router-link>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">
-        <router-link
-          to="{name = 'router', params: 10, query:{lang: 'en', country:'us'}  }"
-        >Router query</router-link>
+        <router-link to="/router/5">Router</router-link>
       </a>
     </li>
     <li class="nav-item">

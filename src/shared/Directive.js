@@ -1,26 +1,5 @@
 import Vue from 'vue';
 
-Vue.directive('color', {
-  bind(el, binding) {
-    if (binding.modifiers['inverted']) {
-      el.style.backgroundColor = binding.value;
-      el.style.color = 'white';
-    } else {
-      if (binding.arg == 'text') {
-        el.style.color = binding.value;
-      } else {
-        el.style.backgroundColor = binding.value;
-      }
-    }
-  },
-});
-
-Vue.directive('focus', {
-  inserted: function(el) {
-    el.focus();
-  },
-});
-
 Vue.directive('padding', {
   bind(el, binding) {
     switch (binding.arg) {
@@ -47,6 +26,27 @@ Vue.directive('padding', {
       default:
         el.style.padding = binding.value + 'px';
     }
+  },
+});
+
+Vue.directive('color', {
+  bind(el, binding) {
+    if (binding.modifiers['inverted']) {
+      el.style.backgroundColor = binding.value;
+      el.style.color = 'white';
+      return;
+    }
+    if (binding.arg == 'text') {
+      el.style.color = binding.value;
+    } else {
+      el.style.backgroundColor = binding.value;
+    }
+  },
+});
+
+Vue.directive('focus', {
+  inserted: function(el) {
+    el.focus();
   },
 });
 

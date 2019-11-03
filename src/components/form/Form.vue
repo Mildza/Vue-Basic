@@ -1,8 +1,6 @@
 <template>
-  <div class="row mt-2">
-    <form
-      class="col-xs-12 col-sm-12 col-md-5 offset-md-1 col-lg-5 offset-lg-1 border border-1 rounded py-2"
-    >
+  <div class="row">
+    <form class="col-xs-12 col-sm-12 col-md-5 offset-md-1 col-lg-5 offset-lg-1">
       <div class="form-group">
         <label for="email">Email address</label>
         <input
@@ -17,7 +15,10 @@
         <small v-if="!$v.email.email">enter valid email address</small>
         <small v-if="!$v.email.required && $v.email.$dirty">Its required</small>
       </div>
-      <div class="form-group" :class="{'mb-0': $v.password.$model.length < 8}">
+      <div
+        class="form-group"
+        :class="{'mb-0': ($v.password.$model.length < 8) && $v.password.$dirty }"
+      >
         <label for="password">Password</label>
         <input
           type="password"
@@ -89,10 +90,10 @@
         class="btn btn-primary mt-2"
       >Submit</button>
     </form>
-    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 offset-lg-1 p-2 border border-1 rounded px-0">
+    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 offset-lg-1 preview">
       <div class="bg-warning py-2 mx-0 text-center rounded">PREVIEW VALUES</div>
 
-      <h3 v-if="submited">Form is submited</h3>
+      <h3 v-if="submited" class="text-center mt-4">Form is submited</h3>
       <div v-else>
         <p class="pt-2">Email: {{email}}</p>
         <p>Password: {{password}}</p>
@@ -150,6 +151,14 @@ export default {
 </script>
 
 <style scoped>
+form,
+.preview {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 20px;
+}
+
 small {
   display: block;
   color: #ccc;
