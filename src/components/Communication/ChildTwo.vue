@@ -1,20 +1,17 @@
 <template>
-  <div>
+  <div class="text-left">
     <h2>Child Two</h2>
     <p>
-      Communication with callback
       <button @click="callback()" class="btn btn-primary">CallBack</button>
+      Communication with callback
     </p>
     <p>
+      <button @click="changeColor" class="btn btn-primary">Custom Event</button>
       Communication with custom event
-      <button
-        @click="changeColor"
-        class="btn btn-primary"
-      >Custom Event</button>
     </p>
     <p>
       Status for bus from child one:
-      <span style="color:red">{{reciveBus}}</span>
+      <span>{{reciveBus}}</span>
     </p>
   </div>
 </template>
@@ -45,4 +42,7 @@ export default {
 
 
 <style scoped>
+span {
+  color: red;
+}
 </style>

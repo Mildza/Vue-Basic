@@ -15,6 +15,12 @@ const router = new VueRouter({
 });
 
 Vue.use(VueResource);
+Vue.http.options.root = 'https://jsonplaceholder.typicode.com/';
+Vue.http.interceptors.push((req, next) => {
+  console.log(req);
+  next();
+});
+
 Vue.use(Vuelidate);
 
 export const eventBus = new Vue();
@@ -23,5 +29,5 @@ new Vue({
   el: '#app',
   router,
   store,
-  render: (h) => h(App),
+  render: h => h(App),
 });

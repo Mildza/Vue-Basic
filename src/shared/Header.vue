@@ -1,11 +1,6 @@
 <template>
   <ul class="nav nav-pills mb-4 justify-content-center">
     <li class="nav-item">
-      <a class="nav-link">
-        <router-link to="/">Home</router-link>
-      </a>
-    </li>
-    <li class="nav-item">
       <a class="nav-link" href="#">
         <router-link to="/form">Form</router-link>
       </a>
@@ -22,7 +17,7 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">
-        <router-link to="/router/5">Router</router-link>
+        <router-link to="/router">Router</router-link>
       </a>
     </li>
     <li class="nav-item">

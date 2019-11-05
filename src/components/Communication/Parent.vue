@@ -1,24 +1,25 @@
 <template>
   <div class="text-center">
+    <hr />
     <h1>Parent</h1>
     <div class="row">
       <div class="col-sm-6">
         <h3>Child One</h3>
         <p>
           Primitive: cat
-          <span style="color:red">{{cat}}</span>
+          <span>{{cat}}</span>
         </p>
 
         <p>
           Object: dog
-          <span style="color:red">{{dog.name}}</span>
+          <span>{{dog.name}}</span>
         </p>
       </div>
       <div class="col-sm-6">
         <h3>Child Two</h3>
         <p>
           Callback change parrent property
-          <span style="color:red">{{car}}</span>
+          <span>{{car}}</span>
         </p>
         <p>
           Custom Event change parrent property
@@ -32,7 +33,7 @@
         <child-one :cat="cat" :dog="dog"></child-one>
       </div>
       <hr />
-      <div class="col-sm-6">
+      <div class="col-sm-5 offset-sm-1">
         <child-two :callback="changeCar" @happen="changeColor($event)"></child-two>
       </div>
     </div>
@@ -77,5 +78,8 @@ export default {
 }
 .blue {
   color: blue;
+}
+span {
+  color: red;
 }
 </style>

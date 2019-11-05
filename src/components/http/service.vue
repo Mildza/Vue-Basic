@@ -1,13 +1,37 @@
 <template>
-  <div>
-    <h1>HTTP</h1>
-    <button class="btn btn-primary" @click="getData">getData</button>
-
+  <div class="text-center">
+    <h2>Accessing HTTP via Vue-resource</h2>
     <hr />
-    <button class="btn btn-primary" @click="postData">postData</button>
+    <p>Getting data via $http.get</p>
+    <button class="btn btn-primary" @click="getData">getData</button>
+    <ul class="mt-3 list-unstyled">
+      <li v-for="el in reciveData" :key="el.id">{{el.name}}</li>
+    </ul>
+    <hr />
+    <p>Post data via $http.post and get feedback</p>
+    <button class="btn btn-primary" @click="postRequest">postData</button>
+    <p v-if="postData" class="mt-3">{{postData.body}}</p>
+    <p>Open console to view interceptors log</p>
+    <hr />
+    <p>Using $resource to fetch data and pass different endpoints</p>
+    <div class="form-group">
+      <label for="comments">
+        <input type="radio" v-model="api" id="comments" value="comments" /> comments
+      </label>
+      <label for="todos">
+        <input type="radio" v-model="api" id="todos" value="todos" /> todos
+      </label>
+      <label for="users">
+        <input type="radio" v-model="api" id="users" value="users" /> users
+      </label>
+      <label for="albums">
+        <input type="radio" v-model="api" id="albums" value="albums" /> albums
+      </label>
+    </div>
+    <button class="btn btn-primary" @click="getResource">Get custom data</button>
 
-    <ul>
-      <li v-for="el in data" :key="el.id">{{el.title}}</li>
+    <ul class="mt-3 list-unstyled">
+      <li v-for="el in resourceData" :key="el.id">{{el}}</li>
     </ul>
   </div>
 </template>
@@ -18,22 +42,44 @@
 export default {
   data() {
     return {
-      data: Array
+      reciveData: Array,
+      postData: Object,
+      resourceData: [],
+      api: "todos"
     };
   },
   methods: {
     getData() {
       this.$http
-        .get("https://jsonplaceholder.typicode.com/posts")
+        .get("users")
         .then(response => response.json())
-        .then(data => (this.data = data));
+        .then(data => (this.reciveData = data));
     },
-    postData() {
+    postRequest() {
+      let data = JSON.stringify({
+        method: "POST",
+        status: "200"
+      });
+
       this.$http
-        .post("https://jsonplaceholder.typicode.com/posts", { status: "ok" })
+        .post("posts", { body: data })
         .then(response => response.json())
-        .then(repsonse => console.log(response));
+        .then(result => (this.postData = result));
+    },
+    getResource() {
+      this.resource
+        .get()
+        .then(response => response.json())
+        .then(result => (this.resourceData = result));
     }
+  },
+  watch: {
+    api: function() {
+      this.resource = this.$resource(this.api);
+    }
+  },
+  created() {
+    this.resource = this.$resource(this.api);
   }
 };
 </script>
