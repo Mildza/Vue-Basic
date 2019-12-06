@@ -1,10 +1,14 @@
-/* eslint-disable linebreak-style */
 import Directive from './components/directive/Directive.vue';
 import Form from './components/form/Form.vue';
 import Router from './components/router/Router.vue';
 import Filter from './components/filter/Filter.vue';
 import Holder from './components/vuex/Holder.vue';
 import Parent from './components/Communication/Parent.vue';
+import Faq from './components/faq/Faq.vue';
+import Mutattion from './components/faq/mutattion/Mutattion.vue';
+import Modifiers from './components/faq/modifiers/Modifiers.vue';
+
+
 
 const Service = resolve => {
   require.ensure(['./components/http/service.vue'], () => {
@@ -21,5 +25,12 @@ export const routes = [
   { path: '/vuex', component: Holder },
   { path: '/communication', component: Parent, name: 'communication' },
   { path: '/http', component: Service },
+  {
+    path: '/faq', component: Faq, children: [
+      { path: 'mutattion', component: Mutattion },
+      { path: 'modifiers', component: Modifiers }
+
+    ]
+  },
   { path: '*', redirect: '/' },
 ];

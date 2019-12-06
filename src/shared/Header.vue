@@ -35,5 +35,10 @@
         <router-link to="/vuex">Vuex</router-link>
       </a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <router-link to="/faq">FAQ</router-link>
+      </a>
+    </li>
   </ul>
 </template>

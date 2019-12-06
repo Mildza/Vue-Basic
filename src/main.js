@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
 import Vuelidate from 'vuelidate';
+
 import App from './App.vue';
 import { routes } from './routes';
 import directives from './shared/Directive';
