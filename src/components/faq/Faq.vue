@@ -4,10 +4,25 @@
       <h3 class="mb-3">FAQ</h3>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <router-link to="mutattion">Change Detetction</router-link>
+          <router-link to="/faq/mutattion">Change Detetction</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="modifiers">Modifiers</router-link>
+          <router-link to="/faq/eventModifiers">Event Modifiers</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/faq/keyModifiers">Key Modifiers</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/faq/modifiers">v-model Modifiers</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/faq/methods">Methods...</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/faq/classStyle">Class and Style</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/faq/conditional">Conditional Rendering</router-link>
         </li>
       </ul>
     </div>
@@ -28,5 +43,8 @@ export default {
 <style scoped>
 .side-bar {
   border-right: 1px solid grey;
+}
+li {
+  margin-bottom: 20px;
 }
 </style>

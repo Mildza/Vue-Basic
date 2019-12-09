@@ -7,6 +7,13 @@ import Parent from './components/Communication/Parent.vue';
 import Faq from './components/faq/Faq.vue';
 import Mutattion from './components/faq/mutattion/Mutattion.vue';
 import Modifiers from './components/faq/modifiers/Modifiers.vue';
+import EventModifiers from './components/faq/eventModifiers/EventModifiers.vue';
+import KeyModifiers from './components/faq/keyModifiers/KeyModifiers.vue';
+import Methods from './components/faq/methods/Methods.vue';
+import ClassStyle from './components/faq/classStyle/ClassStyle.vue';
+import Conditional from './components/faq/conditional/Conditional.vue';
+
+
 
 
 
@@ -28,7 +35,13 @@ export const routes = [
   {
     path: '/faq', component: Faq, children: [
       { path: 'mutattion', component: Mutattion },
-      { path: 'modifiers', component: Modifiers }
+      { path: 'modifiers', component: Modifiers },
+      { path: 'eventModifiers', component: EventModifiers },
+      { path: 'keyModifiers', component: KeyModifiers },
+      { path: 'methods', component: Methods },
+      { path: 'classStyle', component: ClassStyle },
+      { path: 'conditional', component: Conditional }
+
 
     ]
   },

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="text-center mb-3">Event modifiers</h3>
+    <h3 class="text-center mb-3">v-model modifiers</h3>
     <div>
       <h4 class="mb-4">v-model modifiers</h4>v-model.lazy
       <input type="text" name="lazy" v-model.lazy="lazy" placeholder="Lazy modifiers" />
@@ -15,7 +15,7 @@
       />
       Number modifiers - Return the type of number, not deafult a string:
       <span>{{typeof(num)}}</span>
-      <hr />vmodel.trim
+      <hr />v.model.trim
       <input type="text" name="trim" v-model.trim="trim" placeholder="Trim modifiers" />
       Trim modifiers remove white spaces:
       <span>{{trim}}</span>
